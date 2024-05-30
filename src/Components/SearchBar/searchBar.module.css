@@ -1,0 +1,38 @@
+.header {
+  background-color: #0062ff;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.form {
+  display: flex;
+  gap: 10px;
+}
+
+.input {
+  height: 40px;
+  outline: none;
+  border: 2px solid rgb(0, 17, 255);
+  padding: 0 10px;
+  border-radius: 8px;
+  transition: all ease 250ms;
+}
+
+.input:focus {
+  border: 3px solid rgb(0, 234, 255);
+}
+
+.button {
+  cursor: pointer;
+  border-radius: 8px;
+  color: white;
+  border: 2px solid rgb(1, 136, 180);
+  background-color: #1900ff;
+  transition: all ease 250ms;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #0033ff;
+}

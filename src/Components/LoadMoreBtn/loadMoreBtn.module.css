@@ -1,0 +1,11 @@
+.btn {
+  display: block;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-radius: 8px;
+  background-color: #0055ff;
+  color: azure;
+  padding: 15px;
+  border: none;
+}

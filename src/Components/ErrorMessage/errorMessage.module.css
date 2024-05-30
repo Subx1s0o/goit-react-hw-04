@@ -1,0 +1,12 @@
+.error {
+  background-color: #f9f5ef;
+  padding: 15px;
+  border-radius: 4px;
+  color: rgb(255, 0, 0);
+  border: 2px solid red;
+  display: inline-block;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%);
+}
