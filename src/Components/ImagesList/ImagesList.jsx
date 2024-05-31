@@ -1,19 +1,19 @@
 import css from "./imagesList.module.css";
-import Image from "../Image/Image";
 
-export default function ImagesList({ images }) {
+const ImagesList = ({ images, onImageClick }) => {
   return (
     <ul className={css.list}>
-      {images.map(({ id, alt_description, urls }) => {
-        return (
-          <Image
-            key={id}
-            description={alt_description}
-            cardImage={urls.small}
-            modalImage={urls.regular}
-          />
-        );
-      })}
+      {images.map((image) => (
+        <li
+          key={image.id}
+          className={css.li}
+          onClick={() => onImageClick(image)}
+        >
+          <img src={image.urls.small} alt={image.alt_description} />
+        </li>
+      ))}
     </ul>
   );
-}
+};
+
+export default ImagesList;

@@ -7,6 +7,7 @@ import { MagnifyingGlass } from "react-loader-spinner";
 import ImagesList from "./Components/ImagesList/ImagesList";
 import ErrorMessage from "./Components/ErrorMessage/ErrorMessage";
 import LoadMoreBtn from "./Components/LoadMoreBtn/LoadMoreBtn.jsx";
+import ImageModal from "./Components/ImageModal/ImageModal";
 
 function App() {
   const [images, setImages] = useState([]);
@@ -14,6 +15,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const handleSearch = async (result, page = 1) => {
     try {
@@ -32,7 +34,6 @@ function App() {
       } else {
         setError(true);
       }
-      console.log(data);
     } catch (error) {
       toast.error(
         "Network error. Please check your internet connection and try again."
@@ -44,6 +45,14 @@ function App() {
 
   const handlePage = () => {
     handleSearch(searchTerm, currentPage + 1);
+  };
+
+  const openModal = (image) => {
+    setSelectedImage(image);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
   };
 
   return (
@@ -64,19 +73,31 @@ function App() {
           }}
         />
         {error && <ErrorMessage />}
-        {images.length > 0 && <ImagesList images={images} />}
+        {images.length > 0 && (
+          <ImagesList images={images} onImageClick={openModal} />
+        )}
         {loading && (
-          <MagnifyingGlass
-            visible={true}
-            height="80"
-            width="80"
-            ariaLabel="magnifying-glass-loading"
-            wrapperClass="magnifying-glass-wrapper"
-            glassColor="#c0efff"
-            color="#e15b64"
-          />
+          <div className="loader">
+            <MagnifyingGlass
+              visible={true}
+              height="80"
+              width="80"
+              ariaLabel="magnifying-glass-loading"
+              wrapperClass="magnifying-glass-wrapper"
+              glassColor="#c0efff"
+              color="#e15b64"
+            />
+          </div>
         )}
         {images.length > 0 && !loading && <LoadMoreBtn page={handlePage} />}
+
+        {selectedImage && (
+          <ImageModal
+            isOpen={!!selectedImage}
+            image={selectedImage}
+            onClose={closeModal}
+          />
+        )}
       </div>
     </>
   );
