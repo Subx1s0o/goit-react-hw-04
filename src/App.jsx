@@ -77,11 +77,11 @@ function App() {
           <ImagesList images={images} onImageClick={openModal} />
         )}
         {loading && <Loader />}
-        {images.length > 0 && !loading && <LoadMoreBtn page={handlePage} />}
+        {images.length > 0 && <LoadMoreBtn page={handlePage} />}
 
         {selectedImage && (
           <ImageModal
-            isOpen={selectedImage ? true : false}
+            isOpen={selectedImage && true}
             image={selectedImage}
             onClose={closeModal}
           />

@@ -12,7 +12,7 @@ const fetchingImages = async (search, currentPage) => {
     });
     return result.data.results;
   } catch (error) {
-    console.log(error);
+    console.error("We cant get data from server");
   }
 };
 

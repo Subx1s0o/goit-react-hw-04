@@ -1,4 +1,5 @@
 .btn {
+  cursor: pointer;
   display: block;
   margin: auto;
   margin-top: 40px;
@@ -8,4 +9,9 @@
   color: azure;
   padding: 15px;
   border: none;
+  transition: all ease 250ms;
+}
+
+.btn:hover {
+  background-color: #0022e5;
 }

@@ -1,4 +1,4 @@
-import css from "./imagesList.module.css";
+import css from "./imagesGallery.module.css";
 
 const ImagesList = ({ images, onImageClick }) => {
   return (

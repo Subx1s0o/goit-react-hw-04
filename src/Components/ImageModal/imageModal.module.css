@@ -18,8 +18,36 @@
 }
 
 .closeButton {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
   position: fixed;
   top: 20px;
   right: 20px;
   z-index: 92;
+}
+
+.descrDiv {
+  background-color: #010101a2;
+  width: 100%;
+  padding: 10px;
+  position: absolute;
+  display: flex;
+  bottom: 0;
+}
+
+.descr {
+  position: relative;
+  color: white;
+  font-style: italic;
+}
+
+.descr::after {
+  background-color: #fff;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
 }

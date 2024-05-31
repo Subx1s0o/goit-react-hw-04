@@ -1,5 +1,5 @@
 import css from "./searchBar.module.css";
-
+import toast from "react-hot-toast";
 export default function SearchBar({ onSearch }) {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -7,7 +7,7 @@ export default function SearchBar({ onSearch }) {
     const search = form.elements.search.value;
 
     if (form.elements.search.value.trim() === "") {
-      console.error("empty input");
+      toast.error("We can't find something with empty value of search");
     } else {
       onSearch(search);
     }

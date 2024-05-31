@@ -1,9 +1,9 @@
 import Modal from "react-modal";
 import css from "./imageModal.module.css";
-
+import { RxCross1 } from "react-icons/rx";
 Modal.setAppElement("#root");
 
-const ImageModal = ({ isOpen, image, onClose }) => {
+const ImageModal = ({ isOpen, image: { urls, alt_description }, onClose }) => {
   return (
     <>
       <Modal
@@ -13,14 +13,19 @@ const ImageModal = ({ isOpen, image, onClose }) => {
         overlayClassName={css.overlay}
         shouldCloseOnOverlayClick={true}
       >
-        <img
-          src={image.urls.regular}
-          alt={image.alt_description}
-          className={css.modalImage}
-        />
+        <div className="">
+          <img
+            src={urls.regular}
+            alt={alt_description}
+            className={css.modalImage}
+          />
+          <div className={css.descrDiv}>
+            <p className={css.descr}>{alt_description}</p>
+          </div>
+        </div>
       </Modal>
       <button className={css.closeButton} onClick={onClose}>
-        X
+        <RxCross1 color="white" size="30" />
       </button>
     </>
   );
