@@ -3,8 +3,8 @@ import SearchBar from "./Components/SearchBar/SearchBar";
 import { useState } from "react";
 import searchApi from "./searchApi.js";
 import toast, { Toaster } from "react-hot-toast";
-import { MagnifyingGlass } from "react-loader-spinner";
-import ImagesList from "./Components/ImagesList/ImagesList";
+import Loader from "./Components/Loader/Loader.jsx";
+import ImagesList from "./Components/ImagesList/ImageGallery.jsx";
 import ErrorMessage from "./Components/ErrorMessage/ErrorMessage";
 import LoadMoreBtn from "./Components/LoadMoreBtn/LoadMoreBtn.jsx";
 import ImageModal from "./Components/ImageModal/ImageModal";
@@ -76,24 +76,12 @@ function App() {
         {images.length > 0 && (
           <ImagesList images={images} onImageClick={openModal} />
         )}
-        {loading && (
-          <div className="loader">
-            <MagnifyingGlass
-              visible={true}
-              height="80"
-              width="80"
-              ariaLabel="magnifying-glass-loading"
-              wrapperClass="magnifying-glass-wrapper"
-              glassColor="#c0efff"
-              color="#e15b64"
-            />
-          </div>
-        )}
+        {loading && <Loader />}
         {images.length > 0 && !loading && <LoadMoreBtn page={handlePage} />}
 
         {selectedImage && (
           <ImageModal
-            isOpen={!!selectedImage}
+            isOpen={selectedImage ? true : false}
             image={selectedImage}
             onClose={closeModal}
           />
