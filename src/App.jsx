@@ -1,8 +1,8 @@
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage.jsx";
+import ImageGallery from "./components/ImageGallery/ImageGallery.jsx";
 import ImageModal from "./components/ImageModal/ImageModal.jsx";
-import ImagesList from "./components/ImagesList/ImageGallery.jsx";
 import Loader from "./components/Loader/Loader.jsx";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn.jsx";
 import SearchBar from "./components/SearchBar/SearchBar.jsx";
@@ -74,7 +74,7 @@ function App() {
         />
         {error && <ErrorMessage />}
         {images.length > 0 && (
-          <ImagesList images={images} onImageClick={openModal} />
+          <ImageGallery images={images} onImageClick={openModal} />
         )}
         {loading && <Loader />}
         {images.length > 0 && <LoadMoreBtn page={handlePage} />}
