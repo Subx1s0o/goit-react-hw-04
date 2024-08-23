@@ -1,13 +1,13 @@
-import "./css/App.css";
-import SearchBar from "./Components/SearchBar/SearchBar";
 import { useState } from "react";
-import searchApi from "./searchApi.js";
 import toast, { Toaster } from "react-hot-toast";
-import Loader from "./Components/Loader/Loader.jsx";
-import ImagesList from "./Components/ImagesList/ImageGallery.jsx";
-import ErrorMessage from "./Components/ErrorMessage/ErrorMessage";
-import LoadMoreBtn from "./Components/LoadMoreBtn/LoadMoreBtn.jsx";
-import ImageModal from "./Components/ImageModal/ImageModal";
+import ErrorMessage from "./components/ErrorMessage/ErrorMessage.jsx";
+import ImageModal from "./components/ImageModal/ImageModal.jsx";
+import ImagesList from "./components/ImagesList/ImageGallery.jsx";
+import Loader from "./components/Loader/Loader.jsx";
+import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn.jsx";
+import SearchBar from "./components/SearchBar/SearchBar.jsx";
+import "./css/App.css";
+import searchApi from "./searchApi.js";
 
 function App() {
   const [images, setImages] = useState([]);
